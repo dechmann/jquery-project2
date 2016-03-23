@@ -1,0 +1,19 @@
+{
+    "favorite": [
+        {
+            "name": "deadpool",
+            "info": "deadpool is a fictional charictor in the marvel universe. He is a mercenary. He is known as being the merc with a mouth because he doesn't stop talking when in combat. He is my favorite comic book charictor.",
+            "list": [ "comic book","video game","movie"]
+        },
+        {
+            "name": "video games",
+            "info": " I like to play video games. I play video games on pc and xbox. My favorite genre of games are fps.",
+            "list": [ "boarderlands 2","halo","cod"]
+        },
+        {
+            "name": "Arctic monkeys",
+            "info": "My favorite band is arctic monkeys. They are a group that was fourmed in 2002. They have one good album that was made in 2013 that is called AM.",
+            "list": ["r u mine?","Do I Wanna Know?","I Wanna Be Yours" ]
+        }
+    ]
+}
