@@ -1,45 +1,45 @@
 $(function() {
     
+    
+    
     var $body = $("body");
     //removes the put code here
     $("p").addClass("hide").remove();
     
-    $.getJSON("favorites.json")
+    //This will display my json to the html.
+    $.getJSON("js/favorites.json")
     .done( function(data){
-        for(i = 0; i < data.favorite.lengh; i++){
-            $body.append("<H2>" + data.favorite[i].name + "</H2>");
-            $body.prepend("<p>" + data.favorite[i].info + "</p>");
-            $body.prepend("<ul>" + createList(jsonObject) + "</li>");
+        for(i = 0; i < data.favorite.length; i++){
+            //$body.append("<H2>" + data.favorite[i].name + "</H2>");
+            //$body.append("<p>" + data.favorite[i].info + "</p>");
+            //$body.append("<ul>" + createList(data.favorite[i].list) + "</ul>");
+            $body.append("<div><h2>" + data.favorite[i].name + "</h2><p>" + data.favorite[i].info + "</p><ul>" + createList(data.favorite[i].list) + "</ul>");
         }
+        //this is to hide the content and show content.
+        $("p").hide();
+        $("ul").hide();
+        
+        //this is my click handeler.
+        $("h2").on("click", function() {
+            $("p").hide();
+            $("ul").hide();
+            $(this).siblings().show();
+        });
     })
+    //this is my fail protocal.
 .fail(function() {
-    $body.prepend("<p>Sorry there was an error loading this page.</p>")
+    $body.append("<p>Sorry there was an error loading this page.</p>")
 });
-    
-    function createList(jsonObject){
+    //This is to turn the strings in my json into a list.
+    function createList(list){
         var liList = "";
-        for (var i = 0; i < jsonObject.list.length; i++) {
-            liList += "<li>" + jsonObject.list[i] + "</li>";
+        for (var i = 0; i < list.length; i++) {
+            liList += "<li>" + list[i] + "</li>";
         }
         return liList;
     }
     
-    //this will hide the content on the load.
-    $body.ready(function() {
-        $("p").hide();
-        $("ul").hide();
-    });
-    //this is my toggle method.
-    $("H2").on("click", function() {
-        if (this !== chosen){
-            $(this).siblings().hide();
-        chosen = this;
-            $(this).siblings().show();
-        }
-    });
-    /*$("H2").on("click", function() {
-        $("p").hide();
-        $("p").hide();
-        $(this).siblings().show();
-    })*/
+    
+    
+    
 });
